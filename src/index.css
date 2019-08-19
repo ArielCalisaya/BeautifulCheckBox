@@ -1,0 +1,108 @@
+body
+{
+    font-family: monospace, sans-serif;
+}
+/*----------------------Backgrund image----------------*/
+.background{
+  width: 100%;
+}
+
+
+
+/*----------------------------TABLE-----------------------*/
+ul
+{
+    position: absolute;     /*Posicion de tabla sobre header*/
+    top: 50%;
+    left: 50%;
+
+    width: 500px;         /*WIDTH OF TABLE */
+    padding: 0;
+    padding: 10px 20px;
+    border-radius: 20px;
+    transform: translate(-50%,-50%);
+
+    border-radius: 1px solid rgba(0,0,0,.5);
+    background-image: linear-gradient( 88.5deg,  rgba(89,0,114,1) 50.7%, rgba(0,124,198,1) 129% );       /*Color-table*/
+}
+
+/*-------------------------Shadow-Check config-----------------*/
+ul li
+{
+    position: relative;
+
+    padding: 5px 0;        /*Position of Shadow-Check/Slide*/
+
+    list-style: none;       /*List sign per defect, Disabled*/
+
+    border-bottom: 1px solid rgba(0,0,0,.2);
+}
+
+ul li:last-child
+{
+    border-bottom: none;
+}
+
+
+/*--------------------------Text------------------------------*/
+ul li label
+{
+    font-size: 18px;
+
+    padding-left: 30px;
+
+    cursor: pointer;
+
+    color: #fff;         /*Color-Text*/
+}
+
+ul li label input
+{
+    cursor: pointer;
+
+    opacity: 0;           /*CHECKBOX POR DEFECTO OFF= 0  ON= 1*/
+}
+
+/*---------------------Play with Shadow-CheckBOX----------------*/
+ul li label .check
+{
+    position: absolute;    /* position Check-Box-Shadow slide \//*delete this and look at another way to check the list  n.n*/
+    top: 10px;          /*position of checkbox*/
+    left: 0;
+
+    display: block;    /* IF delete this and position: absolute; you will makes a other mode of hide the text :)*/
+
+    box-sizing: border-box;
+    width: 20px;
+    height: 20px;
+
+    border-radius: 4px;
+    background: #0033;       /*  #00011100 ; #11011100 & #1100   <===code for transparent checkbox !!! ------------------------------------------------*/
+}                             /*    #0033    <==== 00 and 2 more numbers for the intensity of the background color combinations within the shadow
+                                                in this case 3 is the medium and 4 or + for high color */
+
+/*-------------More Configurations of the CheckBOX----------*/
+ul li label .check::before
+{
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    bottom: 3px;
+    left: 3px;
+
+    content: '';      /*this creates form to the shadow box*/
+    transition: .5s;
+    transform: translateX(-40px);  /*Posicionamiento de el Shadow-Check*/
+
+    border-radius: 2px;
+    background: rgb(255,255,255);
+    background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0) 74%);        /*Color of Code transparent*/  /*Color of checkbox-Slide(Principal Slide effect)*/
+}
+
+ul li label input:checked ~ .check::before
+{
+    transform: translateX(0);
+
+    background: #adff00;                 /*Color CHECKBOX*/
+    box-shadow: 0 0 15px #adff00;       /*Color of Shadow Check*/
+}
